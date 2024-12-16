@@ -14,13 +14,10 @@ test.set("kite", "pink");
 test.set("lion", "golden");
 test.set("moon", "silver");
 
-// console.log(test.get("grape"));
-// console.log(test.get("hat"));
-// console.log(test.remove("hat"));
-// console.log(test.length());
-console.log(test.values());
+console.log(test.get("grape"));
+console.log(test.get("hat"));
 console.log(test.entries());
-console.log(test.has("frog"));
+console.log(test.length());
+// console.log(test.keys());
 // test.clear();
-// console.log(test.get("hat"));
-// console.log(test.has("frog"));
+console.log(test.has("frog"));
