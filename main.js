@@ -12,7 +12,6 @@ test.set("ice cream", "white");
 test.set("jacket", "blue");
 test.set("kite", "pink");
 test.set("lion", "golden");
-test.set("moon", "silver");
 
 console.log(test.get("grape"));
 console.log(test.get("moon"));
@@ -20,5 +19,4 @@ console.log(test.get("elephant"));
 console.log(test.entries());
 console.log(test.length());
 console.log(test.keys());
-test.clear();
 console.log(test.has("frog"));

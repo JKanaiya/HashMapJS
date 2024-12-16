@@ -1,7 +1,6 @@
 import { LinkedList } from "./LinkedList.js";
 
 const HashMapJS = function () {
-  //  initialize the array length to 16
   let arrSize = 16;
   let arr = Array(arrSize).fill(null);
 
@@ -74,11 +73,6 @@ const HashMapJS = function () {
       }
     });
     return total;
-  };
-
-  const getCapacity = function () {
-    capacity = length();
-    return capacity;
   };
 
   const loadLevel = function () {
