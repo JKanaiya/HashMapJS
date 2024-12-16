@@ -43,7 +43,33 @@ const LinkedList = function () {
     return placeContains(location);
   };
 
-  const getLength = function () {};
+  const getLength = function (location) {
+    let a = 0;
+    function placeContains(query) {
+      a++;
+      if (query.next == null) return a;
+      return placeContains(query.next);
+    }
+    return placeContains(location);
+  };
+
+  const getArray = function (location, part) {
+    let arr = [];
+    function placeContains(query) {
+      if (query) {
+        if (part === "key") {
+          arr.push([query.key]);
+        } else if (part === "value") {
+          arr.push([query.value]);
+        }
+        if (query.next == null) {
+          return arr;
+        }
+        return placeContains(query.next);
+      }
+    }
+    return placeContains(location);
+  };
 
   const findValue = function (node, location) {
     function placeContains(query) {
@@ -58,6 +84,8 @@ const LinkedList = function () {
     append,
     findValue,
     removeValue,
+    getLength,
+    getArray,
   };
 };
 

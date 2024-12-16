@@ -56,6 +56,60 @@ const HashMapJS = function () {
     }
   };
 
+  const length = function () {
+    let total = 1;
+    arr.forEach((item) => {
+      if (item) {
+        total += lList.getLength(item);
+      }
+    });
+    return total;
+  };
+
+  const getCapacity = function () {
+    capacity = lList.length();
+    return capacity;
+  };
+
+  const loadLevel = function () {
+    return getCapacity() * 0.8;
+  };
+
+  const clear = function () {
+    arr = Array(16).fill(null);
+  };
+
+  const keys = function () {
+    let keysArr = [];
+    arr.forEach((item) => {
+      if (item) {
+        keysArr.push(lList.getArray(item, "key"));
+      }
+    });
+    return keysArr;
+  };
+
+  const values = function () {
+    let valArr = [];
+    arr.forEach((item) => {
+      if (item) {
+        valArr.push(lList.getArray(item, "value"));
+      }
+    });
+    return valArr;
+  };
+
+  const entries = function () {
+    let entriesArr = [];
+    // values().forEach((key, value) => {
+    //   entriesArr.push([`${keys()[value]} , ${values()[value]}`]);
+    // });
+    for (let i = 0; i < values().length; i++) {
+      entriesArr.push([`${keys()[i]} , ${values()[i]}`]);
+    }
+    return entriesArr;
+  };
+
   const hash = function (key) {
     let hashCode = 0;
 
@@ -71,6 +125,11 @@ const HashMapJS = function () {
     get,
     has,
     remove,
+    length,
+    clear,
+    keys,
+    values,
+    entries,
   };
 };
 
