@@ -83,27 +83,40 @@ const HashMapJS = function () {
     let keysArr = [];
     arr.forEach((item) => {
       if (item) {
-        keysArr.push(lList.getArray(item, "key"));
+        let temp = lList.getArray(item, "key");
+        if (temp.length > 1 || Array.isArray(temp)) {
+          for (const node in temp) {
+            keysArr.push(temp[node]);
+          }
+        } else {
+          keysArr.push(temp);
+        }
       }
     });
+    // keysArr = keysArr.forEach((item) => {
+    //   getSingleArray(item);
+    // });
     return keysArr;
   };
 
   const values = function () {
     let valArr = [];
     arr.forEach((item) => {
+      let temp = lList.getArray(item, "value");
       if (item) {
-        valArr.push(lList.getArray(item, "value"));
+        if (temp.length > 1 || Array.isArray(temp)) {
+          for (const node in temp) {
+            valArr.push(temp[node]);
+          }
+        } else {
+          valArr.push(temp);
+        }
       }
     });
     return valArr;
   };
-
   const entries = function () {
     let entriesArr = [];
-    // values().forEach((key, value) => {
-    //   entriesArr.push([`${keys()[value]} , ${values()[value]}`]);
-    // });
     for (let i = 0; i < values().length; i++) {
       entriesArr.push([`${keys()[i]} , ${values()[i]}`]);
     }

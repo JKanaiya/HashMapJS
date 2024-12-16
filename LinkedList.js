@@ -58,9 +58,9 @@ const LinkedList = function () {
     function placeContains(query) {
       if (query) {
         if (part === "key") {
-          arr.push([query.key]);
+          arr.push(query.key);
         } else if (part === "value") {
-          arr.push([query.value]);
+          arr.push(query.value);
         }
         if (query.next == null) {
           return arr;
