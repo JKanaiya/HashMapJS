@@ -22,10 +22,10 @@ const HashMapJS = function () {
       mod *= 2;
       arr = Array(arrSize).fill(null);
       for (let entry of tArr) {
-        // console.log(entry[0].split(",")[0], entry[0].split(",")[1]);
         set(entry[0].split(",")[0], entry[0].split(",")[1]);
       }
       set(key, value);
+      console.log(arr);
     } else if (!arr[hash(key)]) {
       arr[hash(key)] = lList.append(key, value);
     } else {
@@ -39,7 +39,6 @@ const HashMapJS = function () {
   };
 
   const get = function (key) {
-    console.log(arr[12]);
     if (!arr[hash(key)]) {
       return null;
     } else {
@@ -126,7 +125,7 @@ const HashMapJS = function () {
   const entries = function () {
     let entriesArr = [];
     for (let i = 0; i < values().length; i++) {
-      entriesArr.push([`${keys()[i]} , ${values()[i]}`]);
+      entriesArr.push([`${keys()[i]},${values()[i]}`]);
     }
     return entriesArr;
   };
@@ -136,7 +135,7 @@ const HashMapJS = function () {
     const primeNumber = 31;
     for (let i = 0; i < key.length; i++) {
       hashCode =
-        (primeNumber * hashCode + key.charCodeAt(i)) % (arr.length - 1);
+        (primeNumber * hashCode + key.charCodeAt(i)) % (arr.length + 1);
     }
     return hashCode;
   };

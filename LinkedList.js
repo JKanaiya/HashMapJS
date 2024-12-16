@@ -86,7 +86,6 @@ const LinkedList = function () {
     removeValue,
     getLength,
     getArray,
-    findLocation,
   };
 };
 
